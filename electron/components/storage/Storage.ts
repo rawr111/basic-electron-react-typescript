@@ -4,26 +4,37 @@ import ProfileInterface from '../../interfaces/ProfileInterface';
 storage.setDataPath(path.join(__dirname, '../../profiles'));
 
 class Storage {
-    static GetProfileById(id: string): Promise<ProfileInterface> {
+    static GetProfileById(id: string): Promise<ProfileInterface | null> {
         return new Promise((resolve, reject) => {
             storage.get(id, (err, profile) => {
-                if (err || !profile) {
-                    reject(err);
-                } else {
-                    resolve(profile as ProfileInterface);
+                if (err) {
+                    return reject(err);
                 }
+                if (!profile) {
+                    return reject(`Профиля ${id} не существует.`);
+                }
+                resolve(profile as ProfileInterface);
             });
         });
     }
     static SaveProfile(profile: ProfileInterface): Promise<void> {
-        return new Promise((resolve, reject) => {
-            storage.set(profile.id, profile, (err) => {
-                if (err) {
-                    reject(err);
+        return new Promise(async (resolve, reject) => {
+            this.GetProfileById(profile.id).then(savedProfile => {
+                if (savedProfile){
+                    reject(`Профиль с таким id(${savedProfile.id}) уже существует!`);
                 } else {
-                    resolve();
+                    storage.set(profile.id, profile, (err) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve();
+                        }
+                    });
                 }
+            }).catch(err => {
+                reject(err);
             });
+
         });
     }
 }
