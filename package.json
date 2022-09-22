@@ -3,7 +3,7 @@
   "author": "Caio Lucas <lienscarlet@gmail.com>",
   "version": "1.0.0",
   "description": "Boilerplate using Electron + TypeScript + React.",
-  "main": "./.webpack/main/index.js",
+  "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -13,9 +13,15 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
+    "electron-json-storage": "^4.5.0",
+    "puppeteer": "^17.1.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hot-loader": "^4.13.0"
+    "react-hot-loader": "^4.13.0",
+    "react-router-dom": "^6.4.0",
+    "steamcommunity": "^3.44.2",
+    "user-agents": "^1.0.1144",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
@@ -31,8 +37,11 @@
     "@electron-forge/plugin-webpack": "^6.0.0-beta.63",
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
     "@types/electron-devtools-installer": "2.2.0",
+    "@types/electron-json-storage": "^4.5.0",
     "@types/react": "^17.0.42",
     "@types/react-dom": "^17.0.14",
+    "@types/user-agents": "^1.0.2",
+    "@types/uuid": "^8.3.4",
     "babel-loader": "^8.2.4",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
