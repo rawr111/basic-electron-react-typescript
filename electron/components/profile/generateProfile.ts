@@ -8,7 +8,7 @@ export default (profileData: ProfileData): ProfileInterface => {
     const profile: ProfileInterface = {
         ...profileData,
         id: uuidv4(),
-        proxy: generateProxy(profileData.proxyStr),
+        proxy: profileData.proxyStr ? generateProxy(profileData.proxyStr) : null,
         userAgent: (new UserAgent()).toString(),
         extensions: [ 'A:/soft/trade manager/sih' ]
     }

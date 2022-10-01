@@ -1,6 +1,7 @@
 import windowsManager from "./windowsManager";
 import listeners from "./listeners";
 import { app, ipcMain, BrowserWindow, App } from 'electron';
+import profileManager from '../Profile/profileManager';
 
 class Application {
     object: App;
@@ -9,6 +10,7 @@ class Application {
     constructor (){
         this.object = app;
         this.mainWindow = null;
+        profileManager.loadProfiles();
     }
 
     start(cb: Function) {

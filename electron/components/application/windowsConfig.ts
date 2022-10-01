@@ -1,43 +1,43 @@
 export default {
-    mainWindow:{
+    mainWindow: {
         width: 1280,
         height: 720,
         minHeight: 720,
         minWidth: 1280,
         maxWidth: 1920,
         maxHeight: 1080,
-        frame:false,
+        frame: true,
         resizable: true
     },
-    salesWindow:{
+    salesWindow: {
         width: 1280,
         height: 720,
         minHeight: 720,
         minWidth: 1280,
         maxWidth: 1920,
         maxHeight: 1080,
-        frame:false,
+        frame: false,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
         },
         resizable: true,
-        icon:'./assets/icons/sales-channels.png'
+        icon: './assets/icons/sales-channels.png'
     },
-    logsWindow:{
+    logsWindow: {
         width: 1280,
         height: 720,
         minHeight: 720,
         minWidth: 1280,
         maxWidth: 1920,
         maxHeight: 1080,
-        frame:false,
+        frame: false,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
         },
         resizable: true,
-        icon:'./assets/icons/log.png'
+        icon: './assets/icons/log.png'
     },
     itemsWindow: {
         width: 1280,

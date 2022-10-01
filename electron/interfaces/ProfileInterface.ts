@@ -1,6 +1,6 @@
 import MaFileInterface from "./maFileInterface";
 import ProfileDataInterface from "./ProfileDataInterface";
-import ProxyInterface from "./ProxyInterface";
+import ProxyInterface from "../components/Request/ProxyInterface";
 
 export default interface ProfileInterface extends ProfileDataInterface {
     id: string;
